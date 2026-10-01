@@ -4,20 +4,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-public class AutoCompleteDictionaryTrie {
-    private Node root;
+public class AutocompleteTrie {
+    private TrieNode root;
     private int size;
 
-    public AutoCompleteDictionaryTrie() {
-        root = new Node();
+    public AutocompleteTrie() {
+        root = new TrieNode();
         size = 0;
     }
 
-    public Node getRoot() {
+    public TrieNode getRoot() {
         return root;
     }
 
-    public void setRoot(Node root) {
+    public void setRoot(TrieNode root) {
         if (root == null) {
             throw new IllegalArgumentException("root cannot be null");
         }
@@ -35,16 +35,16 @@ public class AutoCompleteDictionaryTrie {
             return false;
         }
 
-        HashMap<Character, Node> children = root.children;
+        HashMap<Character, TrieNode> children = root.children;
 
         for (int i = 0; i < normalized.length(); i++) {
             char c = normalized.charAt(i);
-            Node current;
+            TrieNode current;
 
             if (children.containsKey(c)) {
                 current = children.get(c);
             } else {
-                current = new Node(c);
+                current = new TrieNode(c);
                 children.put(c, current);
             }
 
@@ -73,17 +73,17 @@ public class AutoCompleteDictionaryTrie {
             return false;
         }
 
-        Node node = searchNode(normalized);
+        TrieNode node = searchNode(normalized);
         return node != null && node.endWord();
     }
 
-    public Node searchNode(String str) {
+    public TrieNode searchNode(String str) {
         if (str == null) {
             return null;
         }
 
-        HashMap<Character, Node> children = root.children;
-        Node current = root;
+        HashMap<Character, TrieNode> children = root.children;
+        TrieNode current = root;
 
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
@@ -108,7 +108,7 @@ public class AutoCompleteDictionaryTrie {
         }
 
         String normalized = prefix.trim().toLowerCase(Locale.ROOT);
-        Node prefixNode = searchNode(normalized);
+        TrieNode prefixNode = searchNode(normalized);
 
         if (prefixNode == null) {
             return Collections.emptyList();
@@ -133,7 +133,7 @@ public class AutoCompleteDictionaryTrie {
         }
     }
 
-    private void collectWords(Node node, String currentWord, List<String> results) {
+    private void collectWords(TrieNode node, String currentWord, List<String> results) {
         if (node.endWord()) {
             results.add(currentWord);
         }
@@ -143,7 +143,7 @@ public class AutoCompleteDictionaryTrie {
         Collections.sort(nextCharacters);
 
         for (Character c : nextCharacters) {
-            Node child = node.getChild(c);
+            TrieNode child = node.getChild(c);
             collectWords(child, currentWord + c, results);
         }
     }

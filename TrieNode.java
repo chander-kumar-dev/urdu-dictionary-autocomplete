@@ -1,32 +1,32 @@
 import java.util.HashMap;
 import java.util.Set;
 
-public class Node {
-    HashMap<Character, Node> children;
+public class TrieNode {
+    HashMap<Character, TrieNode> children;
     private char text;
     private boolean isWord;
 
-    public Node() {
+    public TrieNode() {
         children = new HashMap<>();
         text = ' ';
         isWord = false;
     }
 
-    public Node(char text) {
+    public TrieNode(char text) {
         this();
         this.text = text;
     }
 
-    public Node getChild(Character c) {
+    public TrieNode getChild(Character c) {
         return children.get(c);
     }
 
-    public Node insert(Character c) {
+    public TrieNode insert(Character c) {
         if (children.containsKey(c)) {
             return null;
         }
 
-        Node next = new Node(c);
+        TrieNode next = new TrieNode(c);
         children.put(c, next);
         return next;
     }

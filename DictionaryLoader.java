@@ -6,12 +6,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class Filing {
+public class DictionaryLoader {
     public static final ArrayList<String> Dictionary = new ArrayList<>();
 
     private final Path filePath;
 
-    public Filing(String filePath) {
+    public DictionaryLoader(String filePath) {
         this.filePath = Paths.get(filePath);
     }
 
