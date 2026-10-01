@@ -11,10 +11,6 @@ public class Filing {
 
     private final Path filePath;
 
-    public Filing() {
-        this("/home/chander/Desktop/UrduNames.txt");
-    }
-
     public Filing(String filePath) {
         this.filePath = Paths.get(filePath);
     }
