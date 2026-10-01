@@ -13,17 +13,6 @@ public class AutocompleteTrie {
         size = 0;
     }
 
-    public TrieNode getRoot() {
-        return root;
-    }
-
-    public void setRoot(TrieNode root) {
-        if (root == null) {
-            throw new IllegalArgumentException("root cannot be null");
-        }
-        this.root = root;
-    }
-
     public boolean addWord(String word) {
         if (word == null) {
             return false;
@@ -49,7 +38,7 @@ public class AutocompleteTrie {
             }
 
             if (i == normalized.length() - 1) {
-                current.setendsWord(true);
+                current.setEndOfWord(true);
                 size++;
             }
 
@@ -74,7 +63,7 @@ public class AutocompleteTrie {
         }
 
         TrieNode node = searchNode(normalized);
-        return node != null && node.endWord();
+        return node != null && node.isEndOfWord();
     }
 
     public TrieNode searchNode(String str) {
@@ -120,26 +109,13 @@ public class AutocompleteTrie {
         return results;
     }
 
-    public void FetchAll(String prefix) {
-        List<String> matches = fetchAll(prefix);
-
-        if (matches.isEmpty()) {
-            System.out.println("word not found");
-            return;
-        }
-
-        for (String word : matches) {
-            System.out.println(word);
-        }
-    }
-
     private void collectWords(TrieNode node, String currentWord, List<String> results) {
-        if (node.endWord()) {
+        if (node.isEndOfWord()) {
             results.add(currentWord);
         }
 
         ArrayList<Character> nextCharacters =
-                new ArrayList<>(node.getValidNextCharacter());
+                new ArrayList<>(node.getChildCharacters());
         Collections.sort(nextCharacters);
 
         for (Character c : nextCharacters) {

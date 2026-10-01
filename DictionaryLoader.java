@@ -15,19 +15,19 @@ public class DictionaryLoader {
         this.filePath = Paths.get(filePath);
     }
 
-    public ArrayList<String> dict() {
+    public ArrayList<String> loadWords() {
         Dictionary.clear();
 
         try (BufferedReader reader = Files.newBufferedReader(
                 filePath, StandardCharsets.UTF_8)) {
 
-            String poetName;
+            String line;
 
-            while ((poetName = reader.readLine()) != null) {
-                poetName = poetName.trim();
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();
 
-                if (!poetName.isEmpty()) {
-                    Dictionary.add(poetName);
+                if (!line.isEmpty()) {
+                    Dictionary.add(line);
                 }
             }
 

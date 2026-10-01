@@ -16,9 +16,10 @@ public class SearchWindow {
     private static final int MAX_RESULTS = 20;
 
     public static void main(String[] args) {
+        // 1. Load the dictionary into the trie
         AutocompleteTrie trieDictionary = new AutocompleteTrie();
         DictionaryLoader file = new DictionaryLoader("Urdu-words.txt");
-        for (String word : file.dict()) {
+        for (String word : file.loadWords()) {
             trieDictionary.addWord(word);
         }
 

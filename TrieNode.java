@@ -35,15 +35,15 @@ public class TrieNode {
         return text;
     }
 
-    public void setendsWord(boolean b) {
+    public void setEndOfWord(boolean b) {
         isWord = b;
     }
 
-    public boolean endWord() {
+    public boolean isEndOfWord() {
         return isWord;
     }
 
-    public Set<Character> getValidNextCharacter() {
+    public Set<Character> getChildCharacters() {
         return children.keySet();
     }
 }
