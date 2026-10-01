@@ -120,9 +120,6 @@ public class AutoCompleteDictionaryTrie {
         return results;
     }
 
-    /**
-     * Keeps your original method name and prints the autocomplete results.
-     */
     public void FetchAll(String prefix) {
         List<String> matches = fetchAll(prefix);
 
