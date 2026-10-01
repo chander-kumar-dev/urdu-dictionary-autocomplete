@@ -52,8 +52,8 @@ The project loads approximately **149,000 Urdu words** and provides efficient au
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/chanderrajput/UrduSearchingDictionary.git
-cd UrduSearchingDictionary
+git clone https://github.com/chander-kumar-dev/urdu-dictionary-autocomplete.git
+cd urdu-dictionary-autocomplete
 ```
 
 ### 2. Compile
@@ -138,7 +138,7 @@ If `java` works but `javac` does not, install a full **JDK**, not only a JRE.
 ## Project Structure
 
 ```text
-UrduSearchingDictionary/
+urdu-dictionary-autocomplete/
 │
 ├── AutoCompleteDictionaryTrie.java
 ├── Filing.java
@@ -857,8 +857,8 @@ The source-code license and dictionary-data license may be different.
 
 **Chander Kumar**
 
-* GitHub: [github.com/chanderrajput](https://github.com/chanderrajput)
-* Repository: [github.com/chanderrajput/UrduSearchingDictionary](https://github.com/chanderrajput/UrduSearchingDictionary)
+* GitHub: [github.com/chander-kumar-dev](https://github.com/chander-kumar-dev)
+* Repository: [github.com/chander-kumar-dev/urdu-dictionary-autocomplete](https://github.com/chander-kumar-dev/urdu-dictionary-autocomplete)
 
 ---
 
