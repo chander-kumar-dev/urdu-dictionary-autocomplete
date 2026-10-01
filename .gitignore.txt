@@ -1,5 +1,0 @@
-ls -la            # look for ".gitignore" exactly
-git status        # if it shows as untracked, run the next three lines
-git add .gitignore
-git commit -m "chore: add .gitignore"
-git push
