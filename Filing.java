@@ -19,7 +19,6 @@ public class Filing {
         this.filePath = Paths.get(filePath);
     }
 
-    // FIX: this must return the dictionary because Test uses file.dict() in a for-each loop.
     public ArrayList<String> dict() {
         Dictionary.clear();
 
