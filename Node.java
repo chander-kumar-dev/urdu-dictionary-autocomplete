@@ -2,7 +2,6 @@ import java.util.HashMap;
 import java.util.Set;
 
 public class Node {
-    // Package-private so the trie can access it, matching your original design.
     HashMap<Character, Node> children;
     private char text;
     private boolean isWord;
@@ -27,7 +26,6 @@ public class Node {
             return null;
         }
 
-        // FIX: use c, not the current node's text.
         Node next = new Node(c);
         children.put(c, next);
         return next;
